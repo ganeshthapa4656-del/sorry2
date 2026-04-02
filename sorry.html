@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Princess 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: #ffc0cb; /* soft pink background */
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* SECTIONS */
+section {
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+section.active {
+    display: flex;
+}
+
+/* BUTTON */
+button {
+    padding: 12px 25px;
+    border-radius: 20px;
+    border: none;
+    background: hotpink;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* MUSIC */
+.music-box {
+    background: #ffb6c1; /* light pink box */
+    padding: 25px;
+    border-radius: 20px;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Album art */
+.album-art {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* PHOTO */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    position: relative;
+}
+
+.card {
+    position: relative;
+}
+
+/* Flower frame around photos */
+.flower-frame {
+    border: 5px solid pink;
+    border-radius: 20px;
+    padding: 10px;
+    background: #fff0f5;
+    display: inline-block;
+}
+
+.flower-frame img {
+    border-radius: 15px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Floating flowers */
+.flower {
+    position: absolute;
+    width: 30px;
+    animation: floatFlower linear infinite;
+}
+
+@keyframes floatFlower {
+    0% { transform: translateY(0) rotate(0deg);}
+    100% { transform: translateY(-150px) rotate(360deg);}
+}
+
+/* LETTER */
+.letter {
+    background: #fff0f5;
+    color: black;
+    padding: 40px;
+    border-radius: 20px;
+    width: 70%;
+    border: 5px solid pink;
+    position: relative;
+}
+
+/* HEART FLOATING */
+.heart-float {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    pointer-events: none;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1;}
+    100% { transform: translateY(-100vh) scale(0.5); opacity: 0;}
+}
+
+/* GIF Demo */
+.gif-demo {
+    width: 200px;
+    margin: 10px auto;
+}
+
+/* Wavy text animation */
+.wave-text {
+    display: inline-block;
+    font-size: 2em;
+    animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-10px); }
+    50% { transform: translateY(5px); }
+    75% { transform: translateY(-5px); }
+}
+
+/* Falling flowers */
+.falling-flower {
+    position: absolute;
+    width: 30px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Cute text blocks */
+.cute-text-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.cute-text {
+    background: #fff0f5;
+    color: black;
+    padding: 20px 30px;
+    border-radius: 25px;
+    border: 3px solid pink;
+    font-size: 1.5em;
+    max-width: 80%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: pop 1s ease forwards;
+}
+
+@keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ✅ SECTION 0: YES / NO -->
+<section class="active">
+    <h1>Do you forgive me? 😔</h1>
+    <div>
+        <button onclick="nextSection()">Yes 💖</button>
+        <button id="noBtn">No 😢</button>
+    </div>
+    <!-- GIF demo placeholder -->
+    <img class="gif-demo" src="gif/first  gif.gif" alt="Demo GIF">
+</section>
+
+<!-- 💔 SECTION 1: APOLOGY FLOW -->
+<section>
+    <h1 id="title">I'm Really Sorry 😔</h1>
+    <p id="text">I know I hurt you...</p>
+    <button onclick="nextApology()">Continue 💔</button>
+    <img class="gif-demo" src="gif/crying.gif" alt="Demo GIF">
+</section>
+
+<!-- 🎵 SECTION 2: MUSIC -->
+<section>
+    <h2Enojy Music🎶</h2>
+    <div class="music-box">
+        <div class="album-art">
+            <img src="photos/1.jpg" alt="Album Art">
+        </div>
+        <audio id="player" controls autoplay>
+            <source src="audio/music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <p>Enjoy our special song 💖</p>
+    <button onclick="nextSection()">Next ➡️</button>
+    <img class="gif-demo" src="gif/sorry.gif" alt="Demo GIF">
+</section>
+
+<!-- 🖼️ SECTION 3: PHOTO CANVAS 2x2 -->
+<section>
+    <h2>Why you are my favorite person 💕</h2>
+    <div class="gallery">
+        <!-- Photo 1 -->
+        <div class="card">
+            <div class="flower-frame">
+                <img src="photos/1.jpeg" alt="Photo 1">
+            </div>
+            <img class="flower" src="gif/heart.png" style="top:-20px; left:10px;">
+            <img class="flower" src="gif/heart.png" style="top:50px; left:150px;">
+        </div>
+        <!-- Photo 2 -->
+        <div class="card">
+            <div class="flower-frame">
+                <img src="photos/2.jpeg" alt="Photo 2">
+            </div>
+            <img class="flower" src="gif/heart.png" style="top:80px; left:100px;">
+        </div>
+        <!-- Photo 3 -->
+        <div class="card">
+            <div class="flower-frame">
+                <img src="photos/3.jpeg" alt="Photo 3">
+            </div>
+            <img class="flower" src="gif/heart.png" style="top:0px; left:130px;">
+        </div>
+        <!-- Photo 4 -->
+        <div class="card">
+            <div class="flower-frame">
+                <img src="photos/4.jpeg" alt="Photo 4">
+            </div>
+            <img class="flower" src="gif/heart.png" style="top:-15px; left:50px;">
+        </div>
+    </div>
+    <button onclick="nextSection()">Next ➡️</button>
+    <img class="gif-demo" src="gif/bowing.gif" alt="Demo GIF">
+</section>
+
+<!-- 💌 SECTION 4: LETTER -->
+<section>
+    <div class="letter">
+        <h2>My Love 💖</h2>
+        <p>
+        I'm really sorry for everything... Your mine Princess mine babygirl mine heart i will make sure to never raise mine voice again  to you baby<br><br>
+        I know i have done  mistake.  where i always want yo to be the happiest but i  messed up  things. i will try to  fix everything that you dont  like about me babygirl. You mean everything to me 💕<br>
+        I wanna see future with you be  with you have a family with you see the world with you and give a world to you. I never want to lose you. Your feeling matters me more than anything in this world<br><br>
+        You are the most special perrson too me which i cannot define ine words. your sweet kind and always thing good about family friends and Ofc me. Please forgive me 🥺<br><br>
+        I Promise you that i will always be careful about mine tone. You have give me soo much baby but i always hurt you make you angry. You Where the first person to ever understand me more than mine me myself, friend and family  <br><br>
+        Please forgive me for last time mine babygirl. I love you soo much mine Princess💕
+        </p>
+    </div>
+    <button onclick="nextSection()">Next ➡️</button>
+    <img class="gif-demo" src="gif/cute flower.gif" alt="Demo GIF">
+</section>
+
+<!-- 🌸 SECTION 5: 6 CUTE TEXTS -->
+<section>
+    <div class="cute-text-section">
+        <div class="cute-text">🌼 You always make me smile 😊</div>
+        <div class="cute-text">💖 Thinking of you brightens my day 🌞</div>
+        <div class="cute-text">🌸 Your laughter is my favorite sound 🎶</div>
+        <div class="cute-text">🐻 I love hugging you forever 🤗</div>
+        <div class="cute-text">✨ You are my sparkle in every moment 💫</div>
+        <div class="cute-text">🍓 Life is sweeter with you by my side ❤️</div>
+    </div>
+    <button onclick="nextSection()">Next ➡️</button>
+    <img class="gif-demo" src="gif/cute flower.gif" alt="Demo GIF">
+</section>
+
+<!-- 💐 SECTION 6: FINAL HUG GIF -->
+<section>
+    <h1><img src="gif/pink flower.png" alt="Photo 1"></h1>
+    <h2><span class="wave-text">I LOVE YOU SO MUCH MY PRINCESS ❤️</span></h2>
+    <img class="gif-demo" src="gif/bubu-dudu-kisses.gif" alt="Hugging GIF">
+</section>
+
+<script>
+let sections = document.querySelectorAll("section");
+let current = 0;
+
+/* APOLOGY FLOW */
+let step = 0;
+function nextApology() {
+    const text = document.getElementById("text");
+    step++;
+    if(step === 1){
+        text.innerHTML = "You mean everything to me 💕";
+    }
+    else if(step === 2){
+        text.innerHTML = "I never wanted to hurt you 😞";
+    }
+    else if(step === 3){
+        text.innerHTML = "Please forgive me 🥺";
+    }
+    else {
+        nextSection();
+    }
+}
+
+/* NEXT SECTION */
+function nextSection() {
+    sections[current].classList.remove("active");
+    current++;
+    sections[current].classList.add("active");
+
+    // Start falling flowers on last section
+    if(current === sections.length - 2){
+        setInterval(createFallingFlower, 1000);
+    }
+}
+
+/* NO BUTTON ESCAPE */
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseenter", () => {
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+/* FLOATING HEARTS */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart-float";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+    heart.innerText = "❤️"; // red heart
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+}
+setInterval(createHeart, 300);
+
+/* FALLING FLOWERS */
+function createFallingFlower() {
+    const lastSection = sections[sections.length - 1];
+    const flower = document.createElement("img");
+    flower.src = "gif/petal.png"; // replace with your flower gif
+    flower.className = "falling-flower";
+    flower.style.left = Math.random() * window.innerWidth + "10px";
+    flower.style.animationDuration = 10 + Math.random() * 6 + "s";
+    lastSection.appendChild(flower);
+
+    setTimeout(() => flower.remove(), 7000);
+}
+</script>
+
+</body>
+</html>\
